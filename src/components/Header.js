@@ -2,11 +2,11 @@ import { useEffect } from "react";
 import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate }from "react-router-dom";
-import { auth, provider } from "./firebase";
+import { auth, provider } from "../firebase";
 import { selectUserName, 
-          selectUserPhoto, 
-          setSignOutState, 
-          setUserLoginDetails,   } from "../features/user/userSlice";
+         selectUserPhoto, 
+         setSignOutState, 
+         setUserLoginDetails,   } from "../features/user/userSlice";
 
 
 
@@ -98,6 +98,8 @@ const NavMenu= styled.div`
     }
   }
 }
+
+/* Media query for options on the header  */
  /* @media (max-width: 768px){
     display: none; 
  } */
@@ -184,6 +186,7 @@ if(!userName){
     })
     .catch((error) => {
       alert(error.message);
+
     });
   }else if(userName){
     auth.signOut().then(() =>{
@@ -246,7 +249,7 @@ if(!userName){
         </DropDown>
         </SignOut>
         </>
-}
+  }
       </Nav>
     );
   };
